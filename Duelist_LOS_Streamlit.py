@@ -194,7 +194,7 @@ with st.sidebar:
 
     uploaded_file = st.file_uploader(
         "📂 Upload Duelist Excel File",
-        type=["xlsx", "xls"]
+        type=["xlsx", "xls", "xlsm", "xlsb"],
     )
 
     sheet_name = st.text_input(
@@ -270,18 +270,31 @@ if uploaded_file is None:
 # ============================================================
 
 try:
-
-    df = pd.read_excel(
-        uploaded_file,
-        sheet_name=sheet_name,
-        dtype={
-            "BBB": str,
-            "ClientCode": str,
-            "MainCode": str,
-            "AcCodeForChg": str,
-            "Nominee": str
-        }
-    )
+    if uploaded_file.name.endswith(".xlsb"):
+        df = pd.read_excel(
+            uploaded_file,
+            sheet_name=sheet_name,
+            dtype={
+                "BBB": str,
+                "ClientCode": str,
+                "MainCode": str,
+                "AcCodeForChg": str,
+                "Nominee": str
+            },
+            engine="pyxlsb"
+        )
+    else:
+        df = pd.read_excel(
+            uploaded_file,
+            sheet_name=sheet_name,
+            dtype={
+                "BBB": str,
+                "ClientCode": str,
+                "MainCode": str,
+                "AcCodeForChg": str,
+                "Nominee": str
+            }
+        )
 
     # Clean column names
     df.columns = (

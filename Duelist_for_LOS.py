@@ -16,11 +16,19 @@ sheet_name = "Mainsheet"
 # READ EXCEL FILE
 # ============================================================
 
-df = pd.read_excel(
-    input_file,
-    sheet_name=sheet_name,
-    dtype={"BBB": str, "ClientCode": str, "MainCode": str, "AcCodeForChg": str, "Nominee": str}
-)
+if input_file.endswith(".xlsb"):
+    df = pd.read_excel(
+            input_file,
+            dtype={"BBB": str, "ClientCode": str, "MainCode": str, "AcCodeForChg": str, "Nominee": str},
+            engine="pyxlsb"
+    )
+
+else:
+    df = pd.read_excel(
+        input_file,
+        sheet_name=sheet_name,
+        dtype={"BBB": str, "ClientCode": str, "MainCode": str, "AcCodeForChg": str, "Nominee": str}
+    )
 
 # Clean column names
 df.columns = df.columns.astype(str).str.strip()
