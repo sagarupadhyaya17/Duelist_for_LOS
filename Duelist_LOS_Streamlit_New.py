@@ -43,7 +43,7 @@ required_columns = [
     "Phone",
     "MobileNo",
     "ContactPerson",
-    "Mobile1",
+    "MobileNo2",
     "Nominee",
     "NomBaln",
     "AcOpenDate",
@@ -88,10 +88,12 @@ required_columns = [
     "ModelDetails",
     "LotNumber",
     "DownPayment",
-    "VehicleModel",
+    "VehicalModel",
     "VehicleNo",
-    "Region",
-    "DistrictCode"
+    "Obligor",
+    "DistrictCode",
+    "Email",
+    "Blacklisted Status"
 ]
 
 # ============================================================
