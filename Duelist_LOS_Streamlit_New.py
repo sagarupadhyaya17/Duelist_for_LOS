@@ -157,7 +157,8 @@ if generate:
                         "ClientCode": str,
                         "MainCode": str,
                         "AcCodeForChg": str,
-                        "Nominee": str
+                        "Nominee": str,
+                        "DistrictCode": str
                     }
                 )
 
@@ -256,7 +257,7 @@ if generate:
 
             # Add CategoryID
 
-            result["CategoryID"] = 1
+            # result["CategoryID"] = 1
 
             # ====================================================
             # FINAL SUMMARY
