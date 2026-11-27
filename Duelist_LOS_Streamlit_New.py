@@ -92,8 +92,8 @@ required_columns = [
     "VehicleNo",
     "Obligor",
     "DistrictCode",
-    "Email",
-    "Blacklisted Status"
+    "Email_ID",
+    "Blacklist Status"
 ]
 
 # ============================================================
